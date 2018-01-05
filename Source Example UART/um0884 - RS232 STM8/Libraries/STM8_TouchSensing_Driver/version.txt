@@ -1,0 +1,138 @@
+================================================================================
+                          STM8 TOUCH SENSING LIBRARY
+                                 Release Notes
+================================================================================
+
+V1.3.0 / 29-OCT-2009
+--------------------
+
+ - Update to latest STM8S Standard Library V1.1.1
+ - Update Acquisition and Timebase timers table of STM8_TSL_RC_Configuration.h file
+ - Change condition to disable ECS when a SCkey or a MCKey is touched
+
+
+V1.2.0 / 24-MAR-2009
+--------------------
+
+ - Add an option in the configuration file to choose the acquisition timer. 
+   This option allows to use the library with any STM8 device.
+
+ - (beta) Add a synchronization capability on an interruption.
+   This option is new and has not been fully validated.
+
+ - (beta) Add Spread spectum capability.
+   This option allows to add a variable delay between acquisitions to reduce noise 
+   sensitivity at specific frequencies.
+   This option is new and has not been fully validated.
+ 
+
+V1.1.0 / 21-FEB-2009
+--------------------
+
+ - New option (NEGDETECT_AUTOCAL) added in the configuration file to enable or
+   disable the autocalibration.
+
+
+V1.0.0 / 22-JAN-2009
+--------------------
+
+  - First official release.
+  - Add clearing of POSCHANGED flag in multichannel.c file.
+
+
+V0.2.0 / 19-DEC-2008
+--------------------
+
+  - Second Beta release.
+  - MCKey I/Os can now be individually mapped on any port/pin.
+  - Add MCKeys constant tables to support Wheel and Slider with Interleaved or
+    Normal electrodes layout.
+  - MCKey "direction change" parameters put in the Configuration.h file.
+    This feature can now be enabled or disabled.
+  - Correct bug with DetectionTimeOut on MCKey.
+  - Add check of rejection counter in all SCKey/MCKey treatment routines.
+  - Improvement of IO acquisition:
+      - add rejection counter in the channel structure
+      - change calculation method of measurements min/max limits
+      - add driven shield mask
+      - set "noise" flag if the number of rejected measures is reached 
+  - Improvement of "configuration.h" file:
+      - NUMBER_OF_SINGLE_CHANNEL_KEYS and NUMBER_OF_SINGLE_CHANNEL_PORTS are removed.
+      - add MCKEYx_LAYOUT_TYPE to distinguish between Interleaved and Normal electrodes layout.
+      - add GPIOx_ELECTRODES_MASK (replace SCKEYx_BITS and MCKEYx_BITS definitions).
+      - add SCKEY_Px and MCKEYx DRIVEN_SHIELD_MASK
+  - Improvement of "checkconfig.h" file:
+      - NUMBER_OF_SINGLE_CHANNEL_KEYS and NUMBER_OF_SINGLE_CHANNEL_PORTS are
+        automatically calculated.
+
+
+V0.0.9 / 30-OCT-2008
+--------------------
+
+  - Add an adjustment after the Delta value calculation.
+  - Add new position offset tables for slider.
+  - In the io driver, the interruptions are disabled before changing the I/O configuration.
+
+
+V0.0.8 / 20-OCT-2008
+--------------------
+
+  - Add new parameter in the configuration file to define the MCkey type (wheel or slider).
+  - Add a filtering on Delta2 value during MCKey position calculation.
+  - Change position calculation on slider.
+  - Add 100ms timer flag to be used by the application layer.
+
+
+V0.0.7 / 09-OCT-2008
+--------------------
+
+  - STM8_TSL_RC_CheckConfig.h file added.
+  - SINGLE_CHANNEL_GROUP_2_USED and SINGLE_CHANNEL_GROUP_3_USED replaced by
+    NUMBER_OF_SINGLE_CHANNEL_PORTS.
+
+
+V0.0.6 / 08-OCT-2008
+--------------------
+  
+  - Change all naming SCKEYn by SCKEY_Pn (with n = 1 to 3).
+  - Add TSLState_T enum typedef.
+  - Add pragma section TSL_IO_ALCODE for aligning the 3 io driver functions.
+  - Change the STM8L timers (TIM3 -> TIM4 for generic timebase and TIM2 -> TIM3 for vih/vil)
+    due to the use of the latest STM8L standard fw library V0.0.2
+    --> the timers used on STM8L and STM8S are now the same.
+  - Function TSL_Tick_500us changed by TSL_Tick_Base.
+
+
+V0.0.5 / 01-OCT-2008
+--------------------
+
+  - Modifications for MISRA compliancy.
+
+
+V0.0.4 / 15-SEP-2008
+--------------------
+
+  - Doxygen documentation format added.
+  - Astyle software run on all files.
+
+  
+V0.0.3 / 04-SEP-2008
+--------------------
+
+  - Conditional compilation added on pragma sections.
+  - type.h and macro.h inclusion removed.
+  - GPIO_TypeDef used from standard peripherals Library.
+
+  
+V0.0.2 / 23-JUL-2008
+--------------------
+  
+  - Bug correction in timer counter reading.
+
+  
+V0.0.1 / 23-JUL-2008
+--------------------
+  
+  - First Alpha release.
+  
+========================= (c) 2009 STMicroelectronics ==========================
